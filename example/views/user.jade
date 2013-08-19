@@ -1,0 +1,32 @@
+!!! 5
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    title= title
+    link(rel='stylesheet', href='/stylesheets/reset.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  form(method="POST", action="")
+    fieldset
+      legend FormFactory Example
+
+      label(for="username") Username
+      if FormErrors.username
+        each msg in FormErrors.username
+          span.error= msg
+      input(type="text", name="username", id="username", value="#{FormInputs.username || user.username || ''}")
+
+      label(for="password") Password
+      if FormErrors.password
+        each msg in FormErrors.password
+          span.error= msg
+      input(type="password", name="password", id="password")
+
+      label(for="password_confirmation") Confirm password
+      if FormErrors.password_confirmation
+              each msg in FormErrors.password_confirmation
+                span.error= msg
+      input(type="password", name="password_confirmation", id="password_confirmation")
+
+      input(type="submit", value="Submit")
+
